@@ -1,0 +1,102 @@
+/* fill banner css */
+.fill-banner {
+    height: auto;
+}
+.banner-image-container {
+    display: block !important;
+    position: relative;
+}
+.fill-banner .banner-image-container img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.fill-banner .banner-image-container {
+    height: 100%;
+}
+.fill-banner-sm-1 {
+    width: calc(50% - var(--grid-mobile-horizontal-spacing) * 3 / 4);
+}
+@media screen and (min-width: 990px) {
+  .fill-banner-lg-1 {
+    width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+}
+  .fill-banner-lg-2 {
+      width: calc(50% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  }
+  .fill-banner-lg-3 {
+      width: calc(75% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  }
+}
+/* fill banner css ends */
+@media (min-width: 750px) and (max-width: 990px) {
+  .grid--3-col-tablet .fill-banner-sm {
+    display: none;
+  }
+}
+@media (max-width: 990px) {
+  .fill-banner-lg {
+    display: none;
+  }
+}
+@media (min-width: 990px) {
+  .fill-banner-sm-1 {
+    display: none;
+}
+  .grid--4-col-desktop .fill-banner-sm {
+    display: none;
+  }
+  .grid--3-col-desktop .fill-banner-sm, .grid--3-col-desktop .fill-banner-lg {
+    display: none;
+  }
+  .grid--2-col-desktop .fill-banner-lg {
+    display: none;
+  }
+}
+/* hotspot banner css */
+.st-image-hotspot-section {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.st-hotspot-container {
+    position: relative;
+}
+.st-hotspot-image {
+    width: 100%;
+    height: auto;
+}
+.st-hotspot-redirect {
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.st-hotspot {
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    background-size: 25px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='%23000000' height='20px' width='20px' version='1.1' id='Layer_1' viewBox='0 0 455 455' xml:space='preserve'%3E%3Cpolygon points='455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 '/%3E%3Cscript xmlns=''/%3E%3C/svg%3E");
+}
+.st-hotspot:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+}

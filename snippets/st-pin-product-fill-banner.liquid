@@ -1,0 +1,54 @@
+{% if index ==  banner_position and products_length >= banner_position %}
+    <li class="fill-banner fill-banner-lg fill-banner-lg-{{ final_length_of_banner }}">
+          <div class="banner-image-container st-hotspot-container">
+            <img
+              src="
+              {%- if final_length_of_banner == 3 and collection.metafields.custom.large_banner_url -%} {{ collection.metafields.custom.large_banner_url }}{%- elsif final_length_of_banner == 3 -%}https://cdn.shopify.com/s/files/1/0835/3651/1298/files/Default_large_a6eb31c3-6127-4009-bb32-46b307010feb.png?v=1734957711{%- endif -%}
+              {%- if final_length_of_banner == 2 and collection.metafields.custom.medium_banner_url -%} {{ collection.metafields.custom.medium_banner_url }}{%- elsif final_length_of_banner == 2 -%}https://cdn.shopify.com/s/files/1/0835/3651/1298/files/Defualt_medium_3ff84c7e-d5c3-4850-83f8-7fee6101f20b.png?v=1734957711{%- endif -%}
+              {%- if final_length_of_banner == 1 and collection.metafields.custom.small_banner_url -%} {{ collection.metafields.custom.small_banner_url }}{%- elsif final_length_of_banner == 1 -%}https://cdn.shopify.com/s/files/1/0835/3651/1298/files/Default_small_8df1631d-6472-4a03-8316-f1cf0c620e0d.png?v=1734957711{%- endif -%}"
+              alt="" class="" loading="lazy" width="" height=""
+            >
+            {% if final_length_of_banner == 1 %} {% assign hotspots = collection.metafields.custom.small_banner_hotspots.value %}
+            {% elsif final_length_of_banner == 2 %} {% assign hotspots = collection.metafields.custom.medium_banner_hotspots.value %}
+            {% elsif final_length_of_banner == 3 %} {% assign hotspots = collection.metafields.custom.large_banner_hotspots.value %}
+            {% endif %}
+            {% if hotspots %}
+              {% for hotspot in hotspots %}
+                <a class="st-hotspot-redirect"
+                  style="top: {{ hotspot.y }}%; left: {{ hotspot.x }}%;" 
+                  href="{{ hotspot.url }}" target="_blank">
+                  <div 
+                      class="st-hotspot" 
+                      data-tooltip="{{ hotspot.tooltip_text }}">
+                  </div>
+                </a>
+              {% endfor %}
+            {% endif %}
+          </div>         
+    </li>
+{% endif %}
+{% if index ==  banner_position_for_2 and products_length >= banner_position_for_2 %}
+    <li class="fill-banner fill-banner-sm fill-banner-sm-{{ final_length_of_banner_for_2 }}">
+          <div class="banner-image-container st-hotspot-container">
+          <img
+              src="
+              {%- if final_length_of_banner_for_2 == 1 and collection.metafields.custom.small_banner_url -%} {{ collection.metafields.custom.small_banner_url }}{%- elsif final_length_of_banner_for_2 == 1 -%}https://cdn.shopify.com/s/files/1/0835/3651/1298/files/Default_small_8df1631d-6472-4a03-8316-f1cf0c620e0d.png?v=1734957711{%- endif -%}"
+              alt="" class="" loading="lazy" width="" height=""
+            >
+            {% if final_length_of_banner_for_2 == 1 %} {% assign hotspots = collection.metafields.custom.small_banner_hotspots.value %}
+            {% endif %}
+            {% if hotspots %}
+              {% for hotspot in hotspots %}
+                <a class="st-hotspot-redirect"
+                  style="top: {{ hotspot.y }}%; left: {{ hotspot.x }}%;" 
+                  href="{{ hotspot.url }}" target="_blank">
+                  <div 
+                      class="st-hotspot" 
+                      data-tooltip="{{ hotspot.tooltip_text }}">
+                  </div>
+                </a>
+              {% endfor %}
+            {% endif %}
+          </div>         
+        </li>
+{% endif %}
